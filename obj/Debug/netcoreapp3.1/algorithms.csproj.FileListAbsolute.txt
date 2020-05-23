@@ -1,0 +1,10 @@
+/Users/russmehring/workspace/algorithms/bin/Debug/netcoreapp3.1/algorithms.deps.json
+/Users/russmehring/workspace/algorithms/bin/Debug/netcoreapp3.1/algorithms.runtimeconfig.json
+/Users/russmehring/workspace/algorithms/bin/Debug/netcoreapp3.1/algorithms.runtimeconfig.dev.json
+/Users/russmehring/workspace/algorithms/bin/Debug/netcoreapp3.1/algorithms.dll
+/Users/russmehring/workspace/algorithms/bin/Debug/netcoreapp3.1/algorithms.pdb
+/Users/russmehring/workspace/algorithms/obj/Debug/netcoreapp3.1/algorithms.csprojAssemblyReference.cache
+/Users/russmehring/workspace/algorithms/obj/Debug/netcoreapp3.1/algorithms.AssemblyInfoInputs.cache
+/Users/russmehring/workspace/algorithms/obj/Debug/netcoreapp3.1/algorithms.AssemblyInfo.cs
+/Users/russmehring/workspace/algorithms/obj/Debug/netcoreapp3.1/algorithms.dll
+/Users/russmehring/workspace/algorithms/obj/Debug/netcoreapp3.1/algorithms.pdb
