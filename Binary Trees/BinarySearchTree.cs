@@ -105,23 +105,8 @@ public class BinarySearchTree : BinaryTree {
             Console.Write(str);
             Console.WriteLine();
         }
-        // if(!q.Any())
-        //     return;
         
-        // BSTNode node = q.Dequeue();
-
-        // string nodeStr = "" + node.Value;
-        // int padding = (treeHeight - node.Level) * 5;
-
-        // Console.Write(nodeStr.PadLeft(padding));
-        // Console.WriteLine();
-
-        // if(node.Left != null)
-        //     q.Enqueue(node.Left);
-        // if(node.Right != null)
-        //     q.Enqueue(node.Right);
-
-        // PrintTreeToConsole(q);
+        this.treeNodesByLevel.Clear();
     }
 
     private void BuildStrings(Queue<BSTNode> q) {
@@ -164,6 +149,6 @@ public class BinarySearchTree : BinaryTree {
             q.Enqueue(node.Right);
         }
 
-        PrintTreeToConsole(q);
+        BuildStrings(q);
     }
 }
