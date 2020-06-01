@@ -2,9 +2,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-public class BinarySearchTree {
+public class BinarySearchTree : BinaryTree {
     private BSTNode root {get; set;}
+    private int treeHeight {get; set;}
+
     public BinarySearchTree(List<int> values) {
+        this.treeHeight = 0;
+
         if(values.Any()) {
             this.root = new BSTNode(values[0], 0);
             values.RemoveAt(0);
@@ -20,8 +24,12 @@ public class BinarySearchTree {
     }
 
     private BSTNode AddNode(BSTNode node, int value, int level) {
-        if(node == null)
+        if(node == null) {
+            if(level > this.treeHeight)
+                treeHeight = level;
+
             return new BSTNode(value, level);
+        }
 
         if(value < node.Value) {
             node.Left = AddNode(node.Left, value, level + 1);
@@ -36,19 +44,30 @@ public class BinarySearchTree {
         this.root = RemoveNode(this.root, value);
     }
 
+    //TODO: Adjust tree height on delete
     private BSTNode RemoveNode(BSTNode node, int value) {
         if(value < node.Value)
-            RemoveNode(node.Left, value);
+            node.Left = RemoveNode(node.Left, value);
         else if(value > node.Value)
-            RemoveNode(node.Right, value);
-        
-        if(node.Left == null)
-            return node.Right;//TODO:Subtract Level
-        else if(node.Right == null)
-            return node.Left;//TODO:Subtract Level
-        
-        node.Value = MinValue(node.Right);
-        node.Right = RemoveNode(node.Right, node.Value);
+            node.Right = RemoveNode(node.Right, value);
+        else {
+            if(node.Left == null) {
+                if(node.Right != null)
+                    node.Right.Level--;
+
+                return node.Right;
+            }
+            else if(node.Right == null) {
+                if(node.Left != null)
+                    node.Left.Level--;
+
+                return node.Left;
+            }
+            
+            //WARNING: Since just changing value of parent node, the level will effectively be correct so no need to --
+            node.Value = MinValue(node.Right);
+            node.Right = RemoveNode(node.Right, node.Value);
+        }
 
         return node;
     }
@@ -74,13 +93,18 @@ public class BinarySearchTree {
         }
     }
 
+    //TODO: calc padding of parent, then enqueue children -- as queing store the print string of the children so they show on the same level
     private void PrintTreeToConsole(Queue<BSTNode> q) {
         if(!q.Any())
             return;
         
         BSTNode node = q.Dequeue();
 
-        Console.WriteLine(node.Value + " : " + node.Level);
+        string nodeStr = "" + node.Value;
+        int padding = (treeHeight - node.Level) * 5;
+
+        Console.Write(nodeStr.PadLeft(padding));
+        Console.WriteLine();
 
         if(node.Left != null)
             q.Enqueue(node.Left);
