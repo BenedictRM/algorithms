@@ -3,7 +3,7 @@ public class BSTNode{
     public BSTNode Right {get; set;}
     public int Value;
     public int Level;
-    public int ParentConsolePadding;
+    public int? ParentConsolePadding;
     public bool IsLeftNode;
 
     public BSTNode(int value, int level) {

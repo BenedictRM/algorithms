@@ -11,7 +11,7 @@ namespace algorithms
 
             // HashTable h = new HashTable();
 
-            int nodeToRemove = 2;
+            int nodeToRemove = 5;
 
             Console.WriteLine("Creating Binary Search Tree");
             List<int> values = new List<int>{5,2,9,45,3,1};

@@ -99,7 +99,7 @@ public class BinarySearchTree : BinaryTree {
     //TODO: calc padding of parent, then enqueue children -- as queing store the print string of the children so they show on the same level -- pass to method thqt prints this new struct
     //Map of level (int) to String/should be good -- Nodes visted level order so should be good
     private void PrintTreeToConsole(Queue<BSTNode> q) {
-        BuildStrings(q);
+        BuildTreeNodeByLevel(q);
 
         foreach(string str in this.treeNodesByLevel.Values) {
             Console.Write(str);
@@ -109,7 +109,7 @@ public class BinarySearchTree : BinaryTree {
         this.treeNodesByLevel.Clear();
     }
 
-    private void BuildStrings(Queue<BSTNode> q) {
+    private void BuildTreeNodeByLevel(Queue<BSTNode> q) {
         if(!q.Any())
             return;
         
@@ -118,22 +118,25 @@ public class BinarySearchTree : BinaryTree {
 
         if(node.ParentConsolePadding >= 0) {
             if(node.IsLeftNode)
-                padding = node.ParentConsolePadding - 5;
+                padding = (int)node.ParentConsolePadding - 5;
             else
-                padding = node.ParentConsolePadding + 5;
+                padding = (int)node.ParentConsolePadding + 5;
         } else {
+            //Get root node in the middle
             padding = (treeHeight - node.Level) * 5;
         }
 
         if(padding < 0)
             padding = 0;
-
+            
         string nodeStr = "" + node.Value;
-        nodeStr = nodeStr.PadLeft(padding);
 
         if(treeNodesByLevel.ContainsKey(node.Level)) {
             string level = treeNodesByLevel[node.Level];
+            nodeStr = nodeStr.PadLeft(padding - level.Length);
             nodeStr = level + nodeStr;
+        } else {
+            nodeStr = nodeStr.PadLeft(padding);
         }
 
         treeNodesByLevel[node.Level] = nodeStr;
@@ -149,6 +152,6 @@ public class BinarySearchTree : BinaryTree {
             q.Enqueue(node.Right);
         }
 
-        BuildStrings(q);
+        BuildTreeNodeByLevel(q);
     }
 }
