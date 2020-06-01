@@ -1,13 +1,16 @@
 using System;
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 
 public class BinarySearchTree : BinaryTree {
     private BSTNode root {get; set;}
     private int treeHeight {get; set;}
+    private Dictionary<int, String> treeNodesByLevel;
 
     public BinarySearchTree(List<int> values) {
         this.treeHeight = 0;
+        treeNodesByLevel = new Dictionary<int, string>();
 
         if(values.Any()) {
             this.root = new BSTNode(values[0], 0);
@@ -93,23 +96,73 @@ public class BinarySearchTree : BinaryTree {
         }
     }
 
-    //TODO: calc padding of parent, then enqueue children -- as queing store the print string of the children so they show on the same level
+    //TODO: calc padding of parent, then enqueue children -- as queing store the print string of the children so they show on the same level -- pass to method thqt prints this new struct
+    //Map of level (int) to String/should be good -- Nodes visted level order so should be good
     private void PrintTreeToConsole(Queue<BSTNode> q) {
+        BuildStrings(q);
+
+        foreach(string str in this.treeNodesByLevel.Values) {
+            Console.Write(str);
+            Console.WriteLine();
+        }
+        // if(!q.Any())
+        //     return;
+        
+        // BSTNode node = q.Dequeue();
+
+        // string nodeStr = "" + node.Value;
+        // int padding = (treeHeight - node.Level) * 5;
+
+        // Console.Write(nodeStr.PadLeft(padding));
+        // Console.WriteLine();
+
+        // if(node.Left != null)
+        //     q.Enqueue(node.Left);
+        // if(node.Right != null)
+        //     q.Enqueue(node.Right);
+
+        // PrintTreeToConsole(q);
+    }
+
+    private void BuildStrings(Queue<BSTNode> q) {
         if(!q.Any())
             return;
         
         BSTNode node = q.Dequeue();
+        int padding = 0;
+
+        if(node.ParentConsolePadding >= 0) {
+            if(node.IsLeftNode)
+                padding = node.ParentConsolePadding - 5;
+            else
+                padding = node.ParentConsolePadding + 5;
+        } else {
+            padding = (treeHeight - node.Level) * 5;
+        }
+
+        if(padding < 0)
+            padding = 0;
 
         string nodeStr = "" + node.Value;
-        int padding = (treeHeight - node.Level) * 5;
+        nodeStr = nodeStr.PadLeft(padding);
 
-        Console.Write(nodeStr.PadLeft(padding));
-        Console.WriteLine();
+        if(treeNodesByLevel.ContainsKey(node.Level)) {
+            string level = treeNodesByLevel[node.Level];
+            nodeStr = level + nodeStr;
+        }
 
-        if(node.Left != null)
+        treeNodesByLevel[node.Level] = nodeStr;
+
+        if(node.Left != null) {
+            node.Left.ParentConsolePadding = padding;
+            node.Left.IsLeftNode = true;
             q.Enqueue(node.Left);
-        if(node.Right != null)
+        }
+        if(node.Right != null) {
+            node.Right.ParentConsolePadding = padding;
+            node.Right.IsLeftNode = false;
             q.Enqueue(node.Right);
+        }
 
         PrintTreeToConsole(q);
     }
