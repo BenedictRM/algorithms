@@ -1,16 +1,17 @@
 using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
 public class BinarySearchTree : BinaryTree {
     private BSTNode root {get; set;}
     private int treeHeight {get; set;}
     private Dictionary<int, String> treeNodesByLevel;
+    private Dictionary<int, String> branchesByLevel;
 
     public BinarySearchTree(List<int> values) {
         this.treeHeight = 0;
-        treeNodesByLevel = new Dictionary<int, string>();
+        this.treeNodesByLevel = new Dictionary<int, string>();
+        this.branchesByLevel = new Dictionary<int, string>();
 
         if(values.Any()) {
             this.root = new BSTNode(values[0], 0);
@@ -96,13 +97,17 @@ public class BinarySearchTree : BinaryTree {
         }
     }
 
-    //TODO: calc padding of parent, then enqueue children -- as queing store the print string of the children so they show on the same level -- pass to method thqt prints this new struct
-    //Map of level (int) to String/should be good -- Nodes visted level order so should be good
     private void PrintTreeToConsole(Queue<BSTNode> q) {
         BuildTreeNodeByLevel(q);
 
-        foreach(string str in this.treeNodesByLevel.Values) {
-            Console.Write(str);
+        foreach(int key in this.treeNodesByLevel.Keys) {
+            string level = this.treeNodesByLevel[key];
+            if(key != 0) {
+                string branches = this.branchesByLevel[key];
+                Console.Write(branches);
+                Console.WriteLine();
+            }
+            Console.Write(level);
             Console.WriteLine();
         }
         
@@ -130,16 +135,25 @@ public class BinarySearchTree : BinaryTree {
             padding = 0;
             
         string nodeStr = "" + node.Value;
+        string branch = node.IsLeftNode ? "/" : @"\";
+        int branchOffset = node.IsLeftNode ? 2 : -2;
 
         if(treeNodesByLevel.ContainsKey(node.Level)) {
             string level = treeNodesByLevel[node.Level];
             nodeStr = nodeStr.PadLeft(padding - level.Length);
             nodeStr = level + nodeStr;
+
+            string branchLevel = branchesByLevel[node.Level];
+            branch = branch.PadLeft((padding - branchLevel.Length) + branchOffset);
+            branch = branchLevel + branch;
         } else {
             nodeStr = nodeStr.PadLeft(padding);
+            branch = branch.PadLeft(padding + branchOffset);
         }
 
         treeNodesByLevel[node.Level] = nodeStr;
+        if(node.Level != 0)
+            branchesByLevel[node.Level] = branch;
 
         if(node.Left != null) {
             node.Left.ParentConsolePadding = padding;
