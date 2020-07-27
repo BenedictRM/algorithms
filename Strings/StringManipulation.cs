@@ -20,11 +20,9 @@ namespace algorithms
 
         public static void ReverseString(string s) {
             char[] chars = new char[s.Length];
-            int j = 0;
 
             for(int i = s.Length - 1; i >= 0; i--) {
-                chars[j] = s[i];
-                j++;
+                chars[s.Length - 1 - i] = s[i];
             }
             
             string reversed = new string(chars);
