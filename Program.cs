@@ -7,10 +7,22 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Hello World!");
+            runStringManipulation();
+        }
 
-            // HashTable h = new HashTable();
+        private static void runStringManipulation() {
+            String reverseMe = "Reverse Me";
 
+            StringManipulation.ReverseStringBuiltIn(reverseMe);
+            StringManipulation.ReverseString(reverseMe);
+            StringManipulation.ReverseStringArrayList(reverseMe);
+        }
+
+        private static void runHashtable() {
+            HashTable h = new HashTable();
+        }
+
+        private static void runBinarySearchTree() {
             int nodeToRemove = 5;
 
             Console.WriteLine("Creating Binary Search Tree");
