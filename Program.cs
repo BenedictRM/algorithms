@@ -7,7 +7,13 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
-            runStringManipulation();
+            runBigO(2);
+        }
+
+        private static void runBigO(int remaining) {
+            bigO problem11 = new bigO();
+
+            problem11.printSortedStrings(remaining);
         }
 
         private static void runStringManipulation() {
