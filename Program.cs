@@ -7,7 +7,27 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
-            runBigO(2);
+            int N = 3;
+            int K = 7;
+            int[] integers = NumbersWithSameConsecutiveDifferences.Solution2(N, K);
+            
+            Console.WriteLine("Integers of length {0} and consecutive difference of {1}:", N, K);
+
+            foreach(int i in integers) {
+                Console.WriteLine(i);
+            }
+        }
+
+        private static void runDistrbuteCandies() {
+            int candies = 80;
+            int people = 4; 
+
+            int[] distribution = DistributeCandies.Solution(candies, people);
+
+            Console.WriteLine("Distribution is: ");
+            foreach(int i in distribution) {
+                Console.WriteLine(i);
+            }
         }
 
         private static void runBigO(int remaining) {
