@@ -7,6 +7,13 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            string s = "I speak Goat Latin";
+            string translation = GoatLatin.ToGoatLatin(s);
+
+            Console.WriteLine("translated {0} to: {1}", s, translation);
+        }
+
+        private static void runNumbersWithSameConsecutiveDifferences() {
             int N = 3;
             int K = 7;
             int[] integers = NumbersWithSameConsecutiveDifferences.Solution2(N, K);
