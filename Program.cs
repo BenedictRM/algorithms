@@ -7,6 +7,38 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            ListNode head = buildList(6);
+            
+            ReorderList.Solution(null);
+
+            Console.WriteLine("Solution");
+            printList(head);
+        }
+
+        private static ListNode buildList(int size = 1) {
+            ListNode head = new ListNode(1);
+            ListNode list = head;
+
+            for(int i = 2; i < size + 1; i++){
+                head.next = new ListNode(i);
+                head = head.next;
+            }
+
+            head = list;
+
+            printList(head);
+
+            return head;
+        }
+
+        private static void printList(ListNode head) {
+            while(head != null) {
+                Console.WriteLine("Node Value: " + head.val);
+                head = head.next;
+            }
+        }
+
+        private static void runToGoatLatin() {
             string s = "I speak Goat Latin";
             string translation = GoatLatin.ToGoatLatin(s);
 
