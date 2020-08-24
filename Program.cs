@@ -7,7 +7,15 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
-            ListNode head = buildList(6);
+            int[] A = new int[]{6,3,1,2,4,5,7,9};
+            SortArrayByParity.Solution(A);
+
+            foreach(int i in A)
+             Console.WriteLine(i);
+        }
+
+        private static void runReorderList() {
+             ListNode head = buildList(6);
             
             ReorderList.Solution(null);
 
