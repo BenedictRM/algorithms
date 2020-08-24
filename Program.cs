@@ -7,11 +7,27 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            StreamChecker streamChecker = new StreamChecker(new string[]{"cd","f","kl"}); // init the dictionary.
+            Console.WriteLine(streamChecker.Query('a'));          // return false
+            Console.WriteLine(streamChecker.Query('b'));          // return false
+            Console.WriteLine(streamChecker.Query('c'));          // return false
+            Console.WriteLine(streamChecker.Query('d'));          // return true, because 'cd' is in the wordlist
+            Console.WriteLine(streamChecker.Query('e'));          // return false
+            Console.WriteLine(streamChecker.Query('f'));          // return true, because 'f' is in the wordlist
+            Console.WriteLine(streamChecker.Query('g'));          // return false
+            Console.WriteLine(streamChecker.Query('h'));          // return false
+            Console.WriteLine(streamChecker.Query('i'));          // return false
+            Console.WriteLine(streamChecker.Query('j'));          // return false
+            Console.WriteLine(streamChecker.Query('k'));          // return false
+            Console.WriteLine(streamChecker.Query('l'));          // return true, because 'kl' is in the wordlist
+        }
+
+        private static void runSortArrayByParity() {
             int[] A = new int[]{6,3,1,2,4,5,7,9};
             SortArrayByParity.Solution(A);
 
             foreach(int i in A)
-             Console.WriteLine(i);
+                Console.WriteLine(i);
         }
 
         private static void runReorderList() {
