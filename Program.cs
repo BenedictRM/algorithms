@@ -7,6 +7,24 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            // int[] days = new int[]{1,4,6,7,8,20}; 
+            // int[] days = new int[]{1,2,3,4,5,6,7,8,9,10,30,31}; 
+            // int[] days = new int[]{1,4,6,9,10,11,12,13,14,15,16,17,18,20,21,22,23,27,28};
+            // int[] costs = new int[]{2,7,15};
+            // int[] costs = new int[]{3,13,45};
+
+            // int[] days = new int[]{1,2,4,5,6,9,10,12,14,15,18,20,21,22,23,24,25,26,28}; // ans: 45
+            // int[] costs = new int[]{3,13,57};
+
+            int[] days = new int[]{1,4,6,7,8,20}; //ans: 6
+            int[] costs = new int[]{7,2,15};
+            
+            int total = MinimumCostForTickets.Solution(days, costs);
+
+            Console.WriteLine("Total was: {0}", total);
+        }
+
+        private static void runStreamhecker() {
             StreamChecker streamChecker = new StreamChecker(new string[]{"cd","f","kl"}); // init the dictionary.
             Console.WriteLine(streamChecker.Query('a'));          // return false
             Console.WriteLine(streamChecker.Query('b'));          // return false
