@@ -7,6 +7,20 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            int[][] intervals = new int[][]{
+                new int[]{4,5},
+                new int[]{2,3},
+                new int[]{1,2}
+            }; //should be -1,0,1
+
+            int[] indexes = FindRightInterval.Solution2(intervals);
+
+            foreach(int i in indexes) {
+                Console.WriteLine("Index: {0}", i);
+            }
+        }
+
+        private static void runMinimumCostForTickets() {
             // int[] days = new int[]{1,4,6,7,8,20}; 
             // int[] days = new int[]{1,2,3,4,5,6,7,8,9,10,30,31}; 
             // int[] days = new int[]{1,4,6,9,10,11,12,13,14,15,16,17,18,20,21,22,23,27,28};
