@@ -7,6 +7,12 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            int ans = Rand10.Solution();
+
+            Console.WriteLine("Answer: {0}", ans);
+        }
+
+        private static void runFindRightInterval() {
             int[][] intervals = new int[][]{
                 new int[]{4,5},
                 new int[]{2,3},
