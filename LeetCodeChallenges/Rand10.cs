@@ -38,5 +38,10 @@ namespace algorithms
 
             return ((rand % 10) + 1);
         }
+
+        public static int Rand7() {
+            //TODO: implement rand num generator 1-7
+            return 7;
+        }
     }
 }

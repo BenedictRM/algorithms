@@ -7,6 +7,24 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            // int[] digits = new int[]{1,2,3,4};
+            // int[] digits = new int[]{4,3,2,1};
+            // int[] digits = new int[]{5,5,5,5};//invlaid
+            // int[] digits = new int[]{1,9,9,1};
+            // int[] digits = new int[]{1,9,2,5};
+            // int[] digits = new int[]{1,7,6,9}; //invalid
+            // int[] digits = new int[]{1,5,6,9}; //valid 19:56
+            // int[] digits = new int[]{5,0,1,9}; //valid 19:50
+            // int[] digits = new int[]{0,0,1,2}; //valid 21:00
+            // int [] digits = new int[]{4,0,1,2};
+            int [] digits = new int[]{2,0,6,6};
+
+            string time = LargestTimeForGivenDigit.Solution(digits);
+
+            Console.WriteLine(time);
+        }
+
+        private static void runRand10() {
             int ans = Rand10.Solution();
 
             Console.WriteLine("Answer: {0}", ans);
