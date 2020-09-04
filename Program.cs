@@ -7,7 +7,19 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
-            
+            // string s = "abab";//true
+            // string s = "aaa";
+            // string s = "aba";//false
+            // string s = "abcabcabcabc";
+            // string s = "abcabcabc";
+            // string s = "abcabcabcdd";//false
+            // string s = "abcabzcabc";//false
+            // string s = "abac";//false
+            // string s = "abacabac";//true
+            string s = "abacababacab";//true
+            bool isRepeated = RepeatedSubstringPattern.RepeatedSubstring(s);
+
+            Console.WriteLine("Is Repeated: {0}", isRepeated);
         }
 
         //This solution is iterative, TODO: try solving recursively!
