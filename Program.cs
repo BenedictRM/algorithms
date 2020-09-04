@@ -7,6 +7,37 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        //This solution is iterative, TODO: try solving recursively!
+        private static void runNumberOfIslands() {
+            // char[][] grid = new char[][]{
+            //     new char[]{'1','1','1','1','0'},
+            //     new char[]{'1','1','0','1','0'},
+            //     new char[]{'1','1','0','0','0'},
+            //     new char[]{'0','0','0','0','0'}
+            // };//1
+
+            // char[][] grid = new char[][]{
+            //     new char[]{'0','0','0','0','0'},
+            //     new char[]{'0','0','0','1','1'},
+            //     new char[]{'0','1','0','1','1'},
+            //     new char[]{'0','1','1','1','1'}
+            // };//1
+
+            char[][] grid = new char[][]{
+                new char[]{'1','1','0','0','0'},
+                new char[]{'1','1','0','0','0'},
+                new char[]{'0','0','1','0','0'},
+                new char[]{'0','0','0','1','1'}
+            };//3
+
+            int numIslands = NumberofIslands.NumIslands(grid);
+            Console.WriteLine("Islands: {0}", numIslands);
+        }
+
+        private static void runLargestTimeForGivenDigit() {
             // int[] digits = new int[]{1,2,3,4};
             // int[] digits = new int[]{4,3,2,1};
             // int[] digits = new int[]{5,5,5,5};//invlaid
