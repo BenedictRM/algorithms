@@ -7,6 +7,11 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            int[] nums = new int[]{-2,2,3,-1,0,8,19,20,-1,47,5};
+            // int[] nums = new int[]{-2,2,3,-1,0,8,19,20};
+            int max = MaximumProductSubarray.MaxProduct(nums);
+
+            Console.WriteLine("max is {0}", max);
         }
 
         private static void runBullsAndCows() {
