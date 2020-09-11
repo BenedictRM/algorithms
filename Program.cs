@@ -7,6 +7,9 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+        }
+
+        private static void runBullsAndCows() {
             string secret = "1123";
             string guess = "0111";
             string hint = BullsAndCows.GetHint(secret, guess);
