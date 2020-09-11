@@ -7,6 +7,13 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            string secret = "1123";
+            string guess = "0111";
+            string hint = BullsAndCows.GetHint(secret, guess);
+            Console.WriteLine(hint);
+        }
+
+        private static void runRpeatedSubstringPattern() {
             // string s = "abab";//true
             // string s = "aaa";
             // string s = "aba";//false
