@@ -7,6 +7,34 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            // int capacity = 11;
+            // int[][] trips = new int[3][];
+            // trips[0] = new int[3]{3,2,7};
+            // trips[1] = new int[3]{3,7,9};
+            // trips[2] = new int[3]{8,3,9};
+
+            //Drop off points exist between stops -- ans: true
+            // int capacity = 11;
+            // int[][] trips = new int[3][];
+            // trips[0] = new int[3]{3,2,8};
+            // trips[1] = new int[3]{4,4,6};
+            // trips[2] = new int[3]{10,8,9};
+
+            // multiple trips with the same pickup location -- ans: false
+            int capacity = 12;
+            int[][] trips = new int[5][];
+            trips[0] = new int[3]{8,2,3};
+            trips[1] = new int[3]{4,1,3};
+            trips[2] = new int[3]{1,3,6};
+            trips[3] = new int[3]{8,4,6};
+            trips[4] = new int[3]{4,4,8};
+
+            bool isPossible = CarPooling.isPossible(trips, capacity);
+
+            Console.WriteLine("is possible? {0}", isPossible);
+        }
+
+        private static void runMaximumProductSubarray() {
             int[] nums = new int[]{-2,2,3,-1,0,8,19,20,-1,47,5};
             // int[] nums = new int[]{-2,2,3,-1,0,8,19,20};
             int max = MaximumProductSubarray.MaxProduct(nums);
