@@ -7,6 +7,16 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            // string s = "abcd";
+            // string t = "abcde";
+            string s = "abcdzfge";
+            string t = "abcdezfga";
+            char c = FindtheDifference.FindTheDifference(s, t);
+
+            Console.WriteLine("Difference: {0} ", c);
+        }
+
+        private static void runCarPooling() {
             // int capacity = 11;
             // int[][] trips = new int[3][];
             // trips[0] = new int[3]{3,2,7};
