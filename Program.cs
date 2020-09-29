@@ -7,6 +7,51 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            int[] nums = new int[]{10, 5, 2, 6}; 
+            int k = 100;
+
+            int total = SubarrayProductLessThanK.NumSubarrayProductLessThanK(nums, k);
+
+            Console.WriteLine("Total Subarrays {0}", total);
+        }
+
+        private static void runEvaluateDivision() {
+            //Test 1
+            // IList<IList<string>> equations = new List<IList<string>>();
+            // equations.Add(new List<string>(){"a","b"});
+            // equations.Add(new List<string>(){"b","c"});
+
+            // double[] values = new double[]{2.0,3.0};
+
+            // IList<IList<string>> queries = new List<IList<string>>();
+            // queries.Add(new List<string>(){"a","c"}); // 6.0
+            // queries.Add(new List<string>(){"b","a"}); // 0.5
+            // queries.Add(new List<string>(){"a","e"}); // -1.0
+            // queries.Add(new List<string>(){"a","a"}); // 1.0
+            // queries.Add(new List<string>(){"x","x"}); // - 1.0
+
+            //Test 2
+            IList<IList<string>> equations = new List<IList<string>>();
+            equations.Add(new List<string>(){"a","b"});
+            equations.Add(new List<string>(){"b","c"});
+            equations.Add(new List<string>(){"bc","cd"});
+
+            double[] values = new double[]{1.5,2.5,5.0};
+
+            IList<IList<string>> queries = new List<IList<string>>();
+            queries.Add(new List<string>(){"a","c"}); // 3.75
+            queries.Add(new List<string>(){"c","b"}); // 0.4
+            queries.Add(new List<string>(){"bc","cd"}); // 5.0
+            queries.Add(new List<string>(){"cd","bc"}); // 0.2
+            
+            double[] answers = EvaluateDivision.CalcEquation(equations, values, queries);
+
+            foreach(double answer in answers) {
+                Console.WriteLine("Answer: {0}", answer);
+            }
+        }
+
+        private static void runLargestNumber() {
             //Test cases
             int[] nums = new int[]{10,2};
             // [3,30,34,5,9]
@@ -26,7 +71,7 @@ namespace algorithms
             LargestNumber.Largest(nums);
         }
 
-        public static void runFindTheDifference() {
+        private static void runFindTheDifference() {
             // string s = "abcd";
             // string t = "abcde";
             string s = "abcdzfge";

@@ -5,6 +5,21 @@ namespace algorithms
 {
     public class LargestNumber
     {
+
+        //Fastest solution
+        // public string LargestNumber(int[] nums) {
+        //     var strNums = nums.Select(n => n.ToString()).ToArray();
+        //     Array.Sort(strNums, (a, b) => string.Compare(b + a, a + b, StringComparison.Ordinal));
+            
+        //     StringBuilder sb = new StringBuilder();
+            
+        //     foreach(var w in strNums)
+        //         sb.Append(w);
+        //     string ans = sb.ToString().TrimStart('0');
+        //     return ans==""?"0":ans;
+            
+        // }
+        
         public static string Largest(int[] nums) {
             StringBuilder largestString = new StringBuilder();
             
