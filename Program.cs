@@ -7,6 +7,21 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            //true
+            // string s = "leetcode"; 
+            // List<string> wordDict = new List<string>(){"leet", "code"};
+            // //true
+            // string s = "applepenapple"; 
+            // List<string> wordDict = new List<string>(){"apple", "pen"};
+            // //false
+            string s = "catsandog"; 
+            List<string> wordDict = new List<string>(){"cats", "dog", "sand", "and", "cat"};
+
+            bool isPossible = WordBreak.IsWordBreakPossible(s, wordDict);
+            Console.WriteLine("Is Possible: {0}", isPossible);
+        }
+
+        private static void runSubarrayProductLessThanK() {
             int[] nums = new int[]{10, 5, 2, 6}; 
             int k = 100;
 
