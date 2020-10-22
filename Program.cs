@@ -7,6 +7,37 @@ namespace algorithms
     {
         static void Main(string[] args)
         {
+            // [5,10,-5]
+            // [5,10,-50]
+            // [5,10,-50,5,-10]
+            // [8,-8]
+            // [50, 10, -11, -60]
+            // [50, 10, -11, -12]
+            // [7,4]
+            // [8,4,3,2,1,-1,-2,-3,-4,-5,-6,-7,-8]
+            // [-2,-2,-2,-2]
+            // [-2,-2,-1,-2]
+            // [-2,-2,1,-1]
+            // [-2,-1,1,2]
+            // [-2,-1,1,-1] //-2,-1 ans
+            int[] asteroids = new int[]{-2,-1,1,-1};
+
+            AsteroidCollision ac = new AsteroidCollision();
+            int[] survivors = ac.Solution(asteroids);
+
+            foreach(int i in survivors)
+                Console.Write("{0}, ", i);
+        }
+
+        //TODO: This is incomplete
+        private static void runBinarySearchable(){
+            // int[] arr = new int[]{2,1,3,4,6,5};
+            int[] arr = new int[]{1,3,2};
+            int count = BinarySearchableElems.BinarySearchable(arr);
+            Console.WriteLine("Searchable Elements Are {0}", count);
+        }
+
+        private static void runIsWordBreakPossible(){
             //true
             // string s = "leetcode"; 
             // List<string> wordDict = new List<string>(){"leet", "code"};
